@@ -8,5 +8,5 @@ func _ready():
 
 
 
-func _on_DemonHunter_attacked(damage, demonHunter):
-	$DamageNumbers.spawnNewNumber(damage, demonHunter.position)
+func _on_DemonHunter_attacked(damage, position):
+	pass

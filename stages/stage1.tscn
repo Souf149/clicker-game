@@ -13,10 +13,8 @@ scale = Vector2( 6.54911, 5.78885 )
 current = true
 
 [node name="DemonHunter" parent="." instance=ExtResource( 1 )]
-position = Vector2( -158.75, -224.927 )
-scale = Vector2( 7, 7 )
-
-[node name="HUD" parent="." instance=ExtResource( 2 )]
+position = Vector2( -178.191, -330.077 )
+scale = Vector2( 0.287475, 0.283635 )
 
 [node name="attackArea" type="Area2D" parent="."]
 scale = Vector2( 50, 30 )
@@ -25,5 +23,7 @@ script = ExtResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackArea"]
 position = Vector2( 0, -9.41858 )
 shape = SubResource( 1 )
+
+[node name="HUD" parent="." instance=ExtResource( 2 )]
 [connection signal="attacked" from="DemonHunter" to="HUD" method="_on_DemonHunter_attacked"]
 [connection signal="clicked" from="attackArea" to="DemonHunter" method="attack"]

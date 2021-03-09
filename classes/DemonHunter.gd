@@ -15,8 +15,8 @@ func startIdle():
 	ANIMATION.play("idle")
 
 func attack():
-	emit_signal("attacked", DAMAGE, self)
+	emit_signal("attacked", DAMAGE, global_position)
 	print("ATTACK")
 	
 	if ANIMATION.animation != "attack":
-		ANIMATION.play("attack1")
+		ANIMATION.play("attack")
