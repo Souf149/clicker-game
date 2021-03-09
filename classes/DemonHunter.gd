@@ -34,3 +34,8 @@ func secondPassed():
 	
 	emit_signal("newDps", dps)
 	damagePastSecond = 0
+
+
+func executeSkill(skillNumber):
+	print(skillNumber)
+	print("WORKS")

@@ -27,3 +27,4 @@ shape = SubResource( 1 )
 [node name="HUD" parent="." instance=ExtResource( 2 )]
 [connection signal="newDps" from="DemonHunter" to="HUD" method="_on_DemonHunter_newDps"]
 [connection signal="clicked" from="attackArea" to="DemonHunter" method="attack"]
+[connection signal="skillButtonPressed" from="HUD" to="DemonHunter" method="executeSkill"]
