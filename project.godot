@@ -19,6 +19,10 @@ config/name="ClickerGame"
 run/main_scene="res://stages/stage1.tscn"
 config/icon="res://icon.png"
 
+[debug]
+
+gdscript/warnings/return_value_discarded=false
+
 [display]
 
 window/size/width=640

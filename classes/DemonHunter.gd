@@ -1,9 +1,14 @@
 extends Node2D
 
 
-var damage = 34
+const DAMAGE = 34
 var dps = 0
 var damagePastSecond = 0
+var critChance = 1.0/10
+var critModifier = 1.5
+
+var rng = RandomNumberGenerator.new()
+
 
 onready var ANIMATION = $AnimatedSprite
 
@@ -13,16 +18,25 @@ signal newDps(dps)
 
 func _ready():
 	ANIMATION.connect("animation_finished", self, "startIdle")
-
+	
 
 func startIdle():
 	ANIMATION.play("idle")
 
 func attack():
-	emit_signal("attacked", damage)
-	damagePastSecond += damage
+	var dealtDamage = DAMAGE
 	
-	if ANIMATION.animation != "attack":
+	# Adding modifiers
+	if(rng.randf() < critChance):	
+		print(rng.randf())	
+		ANIMATION.play("crit")
+		dealtDamage *= critModifier
+		
+	
+	emit_signal("attacked", dealtDamage)
+	damagePastSecond += dealtDamage
+	
+	if ANIMATION.animation == "idle":
 		ANIMATION.play("attack")
 
 
@@ -38,4 +52,28 @@ func secondPassed():
 
 func executeSkill(skillNumber):
 	print(skillNumber)
-	print("WORKS")
+	
+	match skillNumber:
+		0:
+			firstSkill()
+		1:
+			secondSkill()
+		2:
+			thirdSkill()
+		3:
+			fourthSkill()
+		_:
+			print("got a skillNumber which is not a skill")
+			
+func firstSkill():
+	pass
+	
+func secondSkill():
+	pass
+	
+func thirdSkill():
+	pass
+	
+func fourthSkill():
+	pass
+	
