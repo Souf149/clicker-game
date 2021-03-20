@@ -1,32 +1,37 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/fonts/new_dynamicfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/arrow.png" type="Texture" id=2]
+[ext_resource path="res://assets/start.jpg" type="Texture" id=3]
 
-[node name="VBox" type="VBoxContainer"]
+[node name="rootControl" type="PanelContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="HBoxContainer" type="PanelContainer" parent="."]
-margin_right = 640.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 0, 50 )
-size_flags_horizontal = 3
-
-[node name="settingButton" type="ColorRect" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 633.0
-margin_bottom = 43.0
+margin_bottom = 1129.0
+
+[node name="TopPanel" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 450.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 2
+custom_constants/separation = 100
+
+[node name="settingButton" type="ColorRect" parent="VBoxContainer/TopPanel"]
+margin_right = 100.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 50 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0.568627, 0.498039, 0.784314, 1 )
 
-[node name="Label" type="Label" parent="HBoxContainer/settingButton"]
+[node name="Label" type="Label" parent="VBoxContainer/TopPanel/settingButton"]
 margin_right = 40.0
 margin_bottom = 14.0
 custom_fonts/font = ExtResource( 1 )
@@ -37,64 +42,107 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/TopPanel"]
+margin_left = 200.0
+margin_right = 450.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 250, 0 )
+color = Color( 0.784314, 0.823529, 0.305882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/TopPanel/ColorRect"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 1 )
+text = "LOGO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="className" type="PanelContainer" parent="VBoxContainer"]
 margin_top = 54.0
-margin_right = 640.0
-margin_bottom = 593.0
+margin_right = 626.0
+margin_bottom = 143.0
+rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
-size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="leftArrow" type="ColorRect" parent="HBoxContainer2"]
-margin_right = 318.0
-margin_bottom = 539.0
+[node name="settingButton" type="ColorRect" parent="VBoxContainer/className"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 619.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 100, 75 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0.568627, 0.498039, 0.784314, 1 )
 
-[node name="characterDisplay" type="ColorRect" parent="HBoxContainer2"]
-visible = false
-margin_left = 214.0
-margin_right = 425.0
-margin_bottom = 566.0
+[node name="Label" type="Label" parent="VBoxContainer/className/settingButton"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 1 )
+text = "Class  name"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 147.0
+margin_right = 626.0
+margin_bottom = 747.0
+rect_min_size = Vector2( 0, 600 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="characterDisplay" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
+margin_right = 311.0
+margin_bottom = 600.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0.568627, 0.498039, 0.784314, 1 )
 
-[node name="rightArrow" type="ColorRect" parent="HBoxContainer2"]
-margin_left = 322.0
-margin_right = 640.0
-margin_bottom = 539.0
+[node name="bioContainer" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 315.0
+margin_right = 626.0
+margin_bottom = 600.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0.568627, 0.498039, 0.784314, 1 )
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="."]
-margin_top = 597.0
-margin_right = 640.0
-margin_bottom = 1136.0
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 751.0
+margin_right = 626.0
+margin_bottom = 1122.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="leftArrow" type="ColorRect" parent="HBoxContainer3"]
-margin_right = 318.0
-margin_bottom = 539.0
+[node name="leftArrow" type="TextureButton" parent="VBoxContainer/HBoxContainer3"]
+margin_right = 89.0
+margin_bottom = 371.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.568627, 0.498039, 0.784314, 1 )
+texture_normal = ExtResource( 2 )
+expand = true
 
-[node name="characterDisplay" type="ColorRect" parent="HBoxContainer3"]
-visible = false
-margin_left = 214.0
-margin_right = 425.0
-margin_bottom = 566.0
+[node name="characterDisplay" type="TextureRect" parent="VBoxContainer/HBoxContainer3"]
+margin_left = 93.0
+margin_right = 533.0
+margin_bottom = 371.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.568627, 0.498039, 0.784314, 1 )
+texture = ExtResource( 3 )
 
-[node name="rightArrow" type="ColorRect" parent="HBoxContainer3"]
-margin_left = 322.0
-margin_right = 640.0
-margin_bottom = 539.0
+[node name="rightArrow" type="TextureButton" parent="VBoxContainer/HBoxContainer3"]
+margin_left = 537.0
+margin_right = 626.0
+margin_bottom = 371.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.568627, 0.498039, 0.784314, 1 )
+texture_normal = ExtResource( 2 )
+expand = true
