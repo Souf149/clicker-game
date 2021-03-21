@@ -10,7 +10,8 @@ func _ready():
 	
 	for character in names:
 		characters.append({
-			imagePath = "res://assets/" + character + "/idle/preview.png"
+			imagePath = "res://assets/" + character + "/idle/preview.png",
+			className = character
 		})
 		
 	
@@ -24,8 +25,8 @@ func loadIndex(_index):
 	elif index < 0:
 		index = characters.size() - 1
 	
-	print(index)
-	
+	print(characters[index].className)
+	$VBoxContainer/className/settingButton/Label.text = characters[index].className
 	$VBoxContainer/HBoxContainer2/characterDisplay.texture = load(characters[index].imagePath)
 	
 
