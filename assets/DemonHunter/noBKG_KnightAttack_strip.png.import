@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/noBKG_KnightIdle_strip.png-b430afe1f131e98f60d631f0b71a6213.stex"
+path="res://.import/noBKG_KnightAttack_strip.png-7205b82ad1ad051d440518f063f5d968.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Knight/noBKG_KnightIdle_strip.png"
-dest_files=[ "res://.import/noBKG_KnightIdle_strip.png-b430afe1f131e98f60d631f0b71a6213.stex" ]
+source_file="res://assets/DemonHunter/noBKG_KnightAttack_strip.png"
+dest_files=[ "res://.import/noBKG_KnightAttack_strip.png-7205b82ad1ad051d440518f063f5d968.stex" ]
 
 [params]
 

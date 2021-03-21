@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/KnightDeath_strip.png-1063115a51c95329066f632b8d0a5630.stex"
+path="res://.import/KnightRoll_strip.png-95df77026f037a0f6195d046bf65d77e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Knight/KnightDeath_strip.png"
-dest_files=[ "res://.import/KnightDeath_strip.png-1063115a51c95329066f632b8d0a5630.stex" ]
+source_file="res://assets/DemonHunter/KnightRoll_strip.png"
+dest_files=[ "res://.import/KnightRoll_strip.png-95df77026f037a0f6195d046bf65d77e.stex" ]
 
 [params]
 

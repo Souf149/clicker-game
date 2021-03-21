@@ -1,14 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://assets/fonts/new_dynamicfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/start.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/arrow.png" type="Texture" id=2]
-[ext_resource path="res://assets/start.jpg" type="Texture" id=3]
+[ext_resource path="res://interfaceScenes/mainScene/mainScene.gd" type="Script" id=3]
+[ext_resource path="res://assets/fonts/new_dynamicfont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/rectangle.png" type="Texture" id=5]
+[ext_resource path="res://interfaceScenes/mainScene/leftArrow.gd" type="Script" id=6]
+[ext_resource path="res://interfaceScenes/mainScene/rightArrow.gd" type="Script" id=7]
 
-[node name="rootControl" type="PanelContainer"]
+[node name="mainScene" type="PanelContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 7.0
@@ -34,7 +42,7 @@ color = Color( 0.568627, 0.498039, 0.784314, 1 )
 [node name="Label" type="Label" parent="VBoxContainer/TopPanel/settingButton"]
 margin_right = 40.0
 margin_bottom = 14.0
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 4 )
 text = "Settings"
 align = 1
 valign = 1
@@ -55,7 +63,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="VBoxContainer/TopPanel/ColorRect"]
 margin_right = 40.0
 margin_bottom = 14.0
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 4 )
 text = "LOGO"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -84,7 +92,7 @@ color = Color( 0.568627, 0.498039, 0.784314, 1 )
 [node name="Label" type="Label" parent="VBoxContainer/className/settingButton"]
 margin_right = 40.0
 margin_bottom = 14.0
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 4 )
 text = "Class  name"
 align = 1
 valign = 1
@@ -100,12 +108,13 @@ rect_min_size = Vector2( 0, 600 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="characterDisplay" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
+[node name="characterDisplay" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
 margin_right = 311.0
 margin_bottom = 600.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.568627, 0.498039, 0.784314, 1 )
+texture = ExtResource( 5 )
+expand = true
 
 [node name="bioContainer" type="ColorRect" parent="VBoxContainer/HBoxContainer2"]
 margin_left = 315.0
@@ -129,14 +138,15 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 2 )
 expand = true
+script = ExtResource( 6 )
 
-[node name="characterDisplay" type="TextureRect" parent="VBoxContainer/HBoxContainer3"]
+[node name="startButton" type="TextureRect" parent="VBoxContainer/HBoxContainer3"]
 margin_left = 93.0
 margin_right = 533.0
 margin_bottom = 371.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource( 3 )
+texture = ExtResource( 1 )
 
 [node name="rightArrow" type="TextureButton" parent="VBoxContainer/HBoxContainer3"]
 margin_left = 537.0
@@ -146,3 +156,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 2 )
 expand = true
+script = ExtResource( 7 )
+[connection signal="leftButton" from="VBoxContainer/HBoxContainer3/leftArrow" to="." method="loadIndex"]
+[connection signal="rightButton" from="VBoxContainer/HBoxContainer3/rightArrow" to="." method="loadIndex"]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/KnightAttack_strip.png-8bfc6c31d3bc21304f0b909567db717b.stex"
+path="res://.import/KnightAttack_strip.png-80c00ec09b2bb58f516ae97e49c32251.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Knight/KnightAttack_strip.png"
-dest_files=[ "res://.import/KnightAttack_strip.png-8bfc6c31d3bc21304f0b909567db717b.stex" ]
+source_file="res://assets/DemonHunter/KnightAttack_strip.png"
+dest_files=[ "res://.import/KnightAttack_strip.png-80c00ec09b2bb58f516ae97e49c32251.stex" ]
 
 [params]
 

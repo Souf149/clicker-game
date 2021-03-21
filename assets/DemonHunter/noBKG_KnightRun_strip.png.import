@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/KnightJumpAndFall_strip.png-e2725faada0ed20e9cba4945b7812368.stex"
+path="res://.import/noBKG_KnightRun_strip.png-f08b44101d8161db8ef1d0ebd2f0f0d5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Knight/KnightJumpAndFall_strip.png"
-dest_files=[ "res://.import/KnightJumpAndFall_strip.png-e2725faada0ed20e9cba4945b7812368.stex" ]
+source_file="res://assets/DemonHunter/noBKG_KnightRun_strip.png"
+dest_files=[ "res://.import/noBKG_KnightRun_strip.png-f08b44101d8161db8ef1d0ebd2f0f0d5.stex" ]
 
 [params]
 

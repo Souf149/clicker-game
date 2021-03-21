@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Attackassassin_Animation 1_04.png-78a1c3b20fb9ff13d54f06d68f605a07.stex"
+path="res://.import/KnightJumpAndFall_strip.png-b70d4ca0e13069cc1e251a1fc5c85c3e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Assassin/attack/Attackassassin_Animation 1_04.png"
-dest_files=[ "res://.import/Attackassassin_Animation 1_04.png-78a1c3b20fb9ff13d54f06d68f605a07.stex" ]
+source_file="res://assets/DemonHunter/KnightJumpAndFall_strip.png"
+dest_files=[ "res://.import/KnightJumpAndFall_strip.png-b70d4ca0e13069cc1e251a1fc5c85c3e.stex" ]
 
 [params]
 

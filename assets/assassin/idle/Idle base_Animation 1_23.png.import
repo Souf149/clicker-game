@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Idle base_Animation 1_23.png-d1b4fbab4f075ade07fe02f0267f44ed.stex"
+path="res://.import/Idle base_Animation 1_23.png-e943892f263a8e31dea5d10266283e85.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assassin/idle/Idle base_Animation 1_23.png"
-dest_files=[ "res://.import/Idle base_Animation 1_23.png-d1b4fbab4f075ade07fe02f0267f44ed.stex" ]
+source_file="res://assets/Assassin/idle/Idle base_Animation 1_23.png"
+dest_files=[ "res://.import/Idle base_Animation 1_23.png-e943892f263a8e31dea5d10266283e85.stex" ]
 
 [params]
 

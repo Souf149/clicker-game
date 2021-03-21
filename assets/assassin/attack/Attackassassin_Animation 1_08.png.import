@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Attackassassin_Animation 1_08.png-1b94a2f724fcaabcaec2bdb7b662ec90.stex"
+path="res://.import/Attackassassin_Animation 1_08.png-fcfd49c92b58bca062d2064967b46a20.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assassin/attack/Attackassassin_Animation 1_08.png"
-dest_files=[ "res://.import/Attackassassin_Animation 1_08.png-1b94a2f724fcaabcaec2bdb7b662ec90.stex" ]
+source_file="res://assets/Assassin/attack/Attackassassin_Animation 1_08.png"
+dest_files=[ "res://.import/Attackassassin_Animation 1_08.png-fcfd49c92b58bca062d2064967b46a20.stex" ]
 
 [params]
 
