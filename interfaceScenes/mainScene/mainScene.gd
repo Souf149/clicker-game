@@ -4,6 +4,7 @@ var characters = []
 var index = 0
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var names = get_file_names("res://classes")
@@ -25,10 +26,13 @@ func loadIndex(_index):
 	elif index < 0:
 		index = characters.size() - 1
 	
-	print(characters[index].className)
+
 	$VBoxContainer/className/settingButton/Label.text = characters[index].className
 	$VBoxContainer/HBoxContainer2/characterDisplay.texture = load(characters[index].imagePath)
-	
+
+func startGame():
+	Global.selectedClass = characters[index].className
+	get_tree().change_scene("res://stages/stage1.tscn")
 
 func get_file_names(path):
 	var files = []

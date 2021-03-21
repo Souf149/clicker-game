@@ -54,9 +54,6 @@
 [ext_resource path="res://assets/Assassin/idle/Idle base_Animation 1_04.png" type="Texture" id=52]
 [ext_resource path="res://assets/Assassin/idle/Idle base_Animation 1_05.png" type="Texture" id=53]
 
-
-
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 45 ), ExtResource( 44 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 50 ), ExtResource( 49 ), ExtResource( 51 ), ExtResource( 48 ), ExtResource( 11 ), ExtResource( 16 ), ExtResource( 29 ), ExtResource( 32 ), ExtResource( 42 ), ExtResource( 12 ), ExtResource( 39 ), ExtResource( 15 ), ExtResource( 25 ), ExtResource( 27 ), ExtResource( 13 ), ExtResource( 19 ), ExtResource( 4 ), ExtResource( 33 ), ExtResource( 28 ), ExtResource( 40 ), ExtResource( 20 ), ExtResource( 18 ), ExtResource( 10 ), ExtResource( 30 ), ExtResource( 34 ), ExtResource( 3 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 43 ), ExtResource( 22 ), ExtResource( 17 ), ExtResource( 37 ) ],

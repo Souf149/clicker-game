@@ -66,7 +66,7 @@ func executeSkill(skillNumber):
 			print("got a skillNumber which is not a skill")
 			
 func firstSkill():
-	pass
+	print(Global.selectedClass)
 	
 func secondSkill():
 	pass

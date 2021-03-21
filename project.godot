@@ -19,6 +19,10 @@ config/name="ClickerGame"
 run/main_scene="res://interfaceScenes/mainScene/mainScene.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://global.gd"
+
 [debug]
 
 gdscript/warnings/return_value_discarded=false
