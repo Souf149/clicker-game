@@ -4,9 +4,6 @@
 [ext_resource path="res://assets/fonts/Roboto-Thin.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://stages/HUD.gd" type="Script" id=4]
 
-[sub_resource type="DynamicFont" id=3]
-font_data = ExtResource( 2 )
-
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.737255, 0.603922, 0.917647, 0.254902 )
 corner_radius_top_left = 6
@@ -18,81 +15,225 @@ corner_radius_bottom_left = 6
 size = 35
 font_data = ExtResource( 2 )
 
-[node name="HUD" type="CanvasLayer"]
-script = ExtResource( 4 )
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 2 )
 
-[node name="TextureRect" type="ColorRect" parent="."]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_top = -568.0
-margin_right = 640.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect"]
-margin_left = 5.0
-margin_top = 5.0
+[node name="HUD" type="Control"]
 margin_right = 635.0
-margin_bottom = 105.0
-alignment = 1
+margin_bottom = 1136.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="SkillButton0" type="Button" parent="TextureRect/HBoxContainer"]
-margin_right = 154.0
-margin_bottom = 100.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 3 )
-text = "SKILL0"
-script = ExtResource( 1 )
-
-[node name="SkillButton1" type="Button" parent="TextureRect/HBoxContainer"]
-margin_left = 158.0
-margin_right = 313.0
-margin_bottom = 100.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 3 )
-text = "SKILL1"
-script = ExtResource( 1 )
-
-[node name="SkillButton2" type="Button" parent="TextureRect/HBoxContainer"]
-margin_left = 317.0
-margin_right = 471.0
-margin_bottom = 100.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 3 )
-text = "SKILL2"
-script = ExtResource( 1 )
-
-[node name="SkillButton3" type="Button" parent="TextureRect/HBoxContainer"]
-margin_left = 475.0
-margin_right = 630.0
-margin_bottom = 100.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 3 )
-text = "SKILL3"
-script = ExtResource( 1 )
 
 [node name="Panel" type="Panel" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-rect_scale = Vector2( 7.08, 2.36 )
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 628.0
+margin_bottom = 1129.0
+size_flags_vertical = 3
 custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
-margin_right = 283.0
-margin_bottom = 94.0
+[node name="Label" type="Label" parent="Panel"]
+margin_top = 4.0
+margin_right = 635.0
+margin_bottom = 46.0
 custom_fonts/font = SubResource( 2 )
 text = "Combo: "
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="skillButtonPressed" from="TextureRect/HBoxContainer/SkillButton0" to="." method="skillButtonPressed"]
-[connection signal="skillButtonPressed" from="TextureRect/HBoxContainer/SkillButton1" to="." method="skillButtonPressed"]
-[connection signal="skillButtonPressed" from="TextureRect/HBoxContainer/SkillButton2" to="." method="skillButtonPressed"]
-[connection signal="skillButtonPressed" from="TextureRect/HBoxContainer/SkillButton3" to="." method="skillButtonPressed"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 635.0
+margin_bottom = 105.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SkillButton0" type="Button" parent="ColorRect/HBoxContainer"]
+margin_right = 154.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+text = "SKILL0"
+script = ExtResource( 1 )
+
+[node name="SkillButton1" type="Button" parent="ColorRect/HBoxContainer"]
+margin_left = 158.0
+margin_right = 313.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+text = "SKILL1"
+script = ExtResource( 1 )
+
+[node name="SkillButton2" type="Button" parent="ColorRect/HBoxContainer"]
+margin_left = 317.0
+margin_right = 471.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+text = "SKILL2"
+script = ExtResource( 1 )
+
+[node name="SkillButton3" type="Button" parent="ColorRect/HBoxContainer"]
+margin_left = 475.0
+margin_right = 630.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+text = "SKILL3"
+script = ExtResource( 1 )
+
+[node name="TabContainer" type="TabContainer" parent="."]
+margin_left = 15.0
+margin_top = 105.0
+margin_right = 636.0
+margin_bottom = 1227.0
+rect_scale = Vector2( 1, 0.8 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+tabs_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tab1" type="ScrollContainer" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+scroll_horizontal_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/tab1"]
+margin_right = 601.0
+margin_bottom = 2057.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="ColorRect" parent="TabContainer/tab1/VBoxContainer"]
+margin_right = 601.0
+margin_bottom = 225.0
+rect_min_size = Vector2( 0, 225 )
+
+[node name="Control2" type="ColorRect" parent="TabContainer/tab1/VBoxContainer"]
+margin_top = 229.0
+margin_right = 601.0
+margin_bottom = 454.0
+rect_min_size = Vector2( 0, 225 )
+color = Color( 0.972549, 0.0235294, 0.0235294, 1 )
+
+[node name="Control3" type="ColorRect" parent="TabContainer/tab1/VBoxContainer"]
+margin_top = 458.0
+margin_right = 601.0
+margin_bottom = 683.0
+rect_min_size = Vector2( 0, 225 )
+
+[node name="Control4" type="ColorRect" parent="TabContainer/tab1/VBoxContainer"]
+margin_top = 687.0
+margin_right = 601.0
+margin_bottom = 912.0
+rect_min_size = Vector2( 0, 225 )
+
+[node name="Control5" type="ColorRect" parent="TabContainer/tab1/VBoxContainer"]
+margin_top = 916.0
+margin_right = 601.0
+margin_bottom = 1141.0
+rect_min_size = Vector2( 0, 225 )
+
+[node name="Control6" type="ColorRect" parent="TabContainer/tab1/VBoxContainer"]
+margin_top = 1145.0
+margin_right = 601.0
+margin_bottom = 1370.0
+rect_min_size = Vector2( 0, 225 )
+
+[node name="Control7" type="ColorRect" parent="TabContainer/tab1/VBoxContainer"]
+margin_top = 1374.0
+margin_right = 601.0
+margin_bottom = 1599.0
+rect_min_size = Vector2( 0, 225 )
+
+[node name="Control8" type="ColorRect" parent="TabContainer/tab1/VBoxContainer"]
+margin_top = 1603.0
+margin_right = 601.0
+margin_bottom = 1828.0
+rect_min_size = Vector2( 0, 225 )
+
+[node name="Control9" type="ColorRect" parent="TabContainer/tab1/VBoxContainer"]
+margin_top = 1832.0
+margin_right = 601.0
+margin_bottom = 2057.0
+rect_min_size = Vector2( 0, 225 )
+
+[node name="tab2" type="ScrollContainer" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/tab2"]
+margin_right = 613.0
+margin_bottom = 1118.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="tab3" type="ScrollContainer" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/tab3"]
+margin_right = 613.0
+margin_bottom = 1118.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="tab4" type="ScrollContainer" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/tab4"]
+margin_right = 613.0
+margin_bottom = 1118.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+[connection signal="skillButtonPressed" from="ColorRect/HBoxContainer/SkillButton0" to="." method="skillButtonPressed"]
+[connection signal="skillButtonPressed" from="ColorRect/HBoxContainer/SkillButton1" to="." method="skillButtonPressed"]
+[connection signal="skillButtonPressed" from="ColorRect/HBoxContainer/SkillButton2" to="." method="skillButtonPressed"]
+[connection signal="skillButtonPressed" from="ColorRect/HBoxContainer/SkillButton3" to="." method="skillButtonPressed"]
