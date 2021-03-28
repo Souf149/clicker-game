@@ -97,11 +97,14 @@ func firstSkill():
 func secondSkill():
 	if skillCooldowns[1] > 0: return
 	for i in range(10):
-		var knife = Global.instance_node(knifeNode, global_position, self)
+		var knife: KinematicBody2D = Global.instance_node(knifeNode, global_position, self)
 		knife.global_position += Vector2(rng.randf_range(-100, 100), rng.randf_range(-100, 100))
 		knifes.append(knife)
+		knife.connect("clicked", self, "_onKnifeClick")
 	skillCooldowns[1] = 5
-	
+
+func _onKnifeClick():
+	print("SOUF")
 	
 func thirdSkill():
 	if skillCooldowns[2] > 0: return
