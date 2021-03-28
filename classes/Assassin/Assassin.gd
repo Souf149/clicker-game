@@ -6,7 +6,7 @@ var dps = 0
 var damagePastSecond = 0
 var critChance = 1.0/10
 var critModifier = 1.5
-var clickable = true
+var ableToAttack = true
 
 var rng = RandomNumberGenerator.new()
 var knifes = []
@@ -16,6 +16,8 @@ var knifeNode = preload("res://classes/Assassin/abilities/Knife.tscn")
 var kunaiNode = preload("res://classes/Assassin/abilities/Kunai.tscn")
 
 var skillCooldowns = [0.0, 0.0, 0.0, 0.0, 0.0]
+
+var firstSkillTimer = 0
 
 signal attacked(damage)
 signal newDps(dps)
@@ -29,11 +31,18 @@ func _process(delta):
 		if(skillCooldowns[index] > 0):
 			skillCooldowns[index] -= delta;
 	
+	if firstSkillTimer > 0:
+		firstSkillTimer -= delta;
+	else:
+		ableToAttack = true
+		modulate.a = 1
+	
 
 func startIdle():
 	ANIMATION.play("idle")
 
 func attack():
+	if not ableToAttack: return
 	var dealtDamage = DAMAGE
 	
 	# Adding modifiers
@@ -80,7 +89,9 @@ func executeSkill(skillNumber):
 func firstSkill():
 	if skillCooldowns[0] > 0: return
 		
-	clickable = false
+	ableToAttack = false
+	modulate.a = 0.1
+	firstSkillTimer = 3
 	skillCooldowns[0] = 5
 	
 func secondSkill():
@@ -98,8 +109,7 @@ func thirdSkill():
 	skillCooldowns[2] = 5
 	
 func fourthSkill():
-	if skillCooldowns[3] > 0: return
-	skillCooldowns[3] = 5
+	return # Passive ability
 
 func fifthSkill():
 	if skillCooldowns[4] > 0: return

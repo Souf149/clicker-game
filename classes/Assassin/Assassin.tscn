@@ -96,23 +96,4 @@ shape = SubResource( 2 )
 
 [node name="EverySecondTimer" type="Timer" parent="."]
 autostart = true
-
-[node name="cdSkill1" type="Timer" parent="."]
-one_shot = true
-
-[node name="cdSkill2" type="Timer" parent="."]
-one_shot = true
-
-[node name="cdSkill3" type="Timer" parent="."]
-one_shot = true
-
-[node name="cdSkill4" type="Timer" parent="."]
-one_shot = true
-
-[node name="cdSkill5" type="Timer" parent="."]
-one_shot = true
-
-[node name="invisibilityTimer" type="Timer" parent="."]
-
-[node name="knifeTimer" type="Timer" parent="."]
 [connection signal="timeout" from="EverySecondTimer" to="." method="secondPassed"]
