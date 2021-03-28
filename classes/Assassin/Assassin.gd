@@ -15,11 +15,19 @@ onready var ANIMATION = $AnimatedSprite
 var knifeNode = preload("res://classes/Assassin/abilities/Knife.tscn")
 var kunaiNode = preload("res://classes/Assassin/abilities/Kunai.tscn")
 
+var skillCooldowns = [0.0, 0.0, 0.0, 0.0, 0.0]
+
 signal attacked(damage)
 signal newDps(dps)
 
 func _ready():
 	ANIMATION.connect("animation_finished", self, "startIdle")
+	
+func _process(delta):
+
+	for index in range(skillCooldowns.size()):
+		if(skillCooldowns[index] > 0):
+			skillCooldowns[index] -= delta;
 	
 
 func startIdle():
@@ -29,8 +37,8 @@ func attack():
 	var dealtDamage = DAMAGE
 	
 	# Adding modifiers
-	if(rng.randf() < critChance):	
-		print(rng.randf())	
+	if(rng.randf() < critChance):
+		print(rng.randf())
 		ANIMATION.play("crit")
 		dealtDamage *= critModifier
 		
@@ -70,27 +78,31 @@ func executeSkill(skillNumber):
 			print("got a skillNumber which is not a skill")
 			
 func firstSkill():
+	if skillCooldowns[0] > 0: return
+		
 	clickable = false
-	$cdSkill1.start()
+	skillCooldowns[0] = 5
 	
 func secondSkill():
+	if skillCooldowns[1] > 0: return
 	for i in range(10):
 		var knife = Global.instance_node(knifeNode, global_position, self)
 		knife.global_position += Vector2(rng.randf_range(-100, 100), rng.randf_range(-100, 100))
 		knifes.append(knife)
-	$cdSkill2.start()
+	skillCooldowns[1] = 5
 	
 	
 func thirdSkill():
+	if skillCooldowns[2] > 0: return
 	Global.instance_node(kunaiNode, global_position, self)
-	$cdSkill3.start()
+	skillCooldowns[2] = 5
 	
 func fourthSkill():
-	pass
-	$cdSkill4.start()
+	if skillCooldowns[3] > 0: return
+	skillCooldowns[3] = 5
 
 func fifthSkill():
-	pass
-	$cdSkill5.start()
+	if skillCooldowns[4] > 0: return
+	skillCooldowns[4] = 5
 
 	
