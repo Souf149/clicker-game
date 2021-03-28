@@ -1,7 +1,7 @@
 [gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://assets/Assassin/attack/Attackassassin_Animation 1_00.png" type="Texture" id=1]
-[ext_resource path="res://classes/Assassin.gd" type="Script" id=2]
+[ext_resource path="res://classes/Assassin/Assassin.gd" type="Script" id=2]
 [ext_resource path="res://assets/Assassin/idle/Idle base_Animation 1_31.png" type="Texture" id=3]
 [ext_resource path="res://assets/Assassin/idle/Idle base_Animation 1_22.png" type="Texture" id=4]
 [ext_resource path="res://assets/Assassin/attack/Attackassassin_Animation 1_06.png" type="Texture" id=5]
@@ -61,22 +61,22 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 36 ), ExtResource( 6 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "crit",
+"speed": 6.0
+}, {
 "frames": [ ExtResource( 1 ), ExtResource( 41 ), ExtResource( 35 ), ExtResource( 26 ), ExtResource( 8 ), ExtResource( 38 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 36 ), ExtResource( 14 ), ExtResource( 7 ), ExtResource( 21 ), ExtResource( 31 ) ],
 "loop": true,
 "name": "attack",
 "speed": 30.0
-}, {
-"frames": [ ExtResource( 36 ), ExtResource( 6 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "crit",
-"speed": 10.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 8.27126
 height = 12.2031
 
-[node name="DemonHunter" type="KinematicBody2D"]
+[node name="Assassin" type="KinematicBody2D"]
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -86,7 +86,7 @@ __meta__ = {
 position = Vector2( 0, -0.132431 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 25
+frame = 34
 speed_scale = 3.0
 playing = true
 
@@ -97,5 +97,22 @@ shape = SubResource( 2 )
 [node name="EverySecondTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="Timer2" type="Timer" parent="."]
+[node name="cdSkill1" type="Timer" parent="."]
+one_shot = true
+
+[node name="cdSkill2" type="Timer" parent="."]
+one_shot = true
+
+[node name="cdSkill3" type="Timer" parent="."]
+one_shot = true
+
+[node name="cdSkill4" type="Timer" parent="."]
+one_shot = true
+
+[node name="cdSkill5" type="Timer" parent="."]
+one_shot = true
+
+[node name="invisibilityTimer" type="Timer" parent="."]
+
+[node name="knifeTimer" type="Timer" parent="."]
 [connection signal="timeout" from="EverySecondTimer" to="." method="secondPassed"]

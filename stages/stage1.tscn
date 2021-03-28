@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://DemonHunter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://classes/Assassin/Assassin.tscn" type="PackedScene" id=1]
 [ext_resource path="res://IngameHUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://stages/Area2D.gd" type="Script" id=4]
 
