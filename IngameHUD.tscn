@@ -19,13 +19,15 @@ font_data = ExtResource( 2 )
 font_data = ExtResource( 2 )
 
 [node name="HUD" type="Control"]
-margin_right = 635.0
-margin_bottom = 1136.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -320.0
+margin_right = 320.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 4 )
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="Panel" type="Panel" parent="."]

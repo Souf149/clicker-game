@@ -23,10 +23,11 @@ signal attacked(damage)
 signal newDps(dps)
 
 func _ready():
-	ANIMATION.connect("animation_finished", self, "startIdle")
+	ANIMATION.connect("animation_finished", self, "animationFinished")
 	
 func _process(delta):
-
+	if ANIMATION.animation == "walk":
+		position += Vector2(1, 0)
 	for index in range(skillCooldowns.size()):
 		if(skillCooldowns[index] > 0):
 			skillCooldowns[index] -= delta;
@@ -38,7 +39,8 @@ func _process(delta):
 		modulate.a = 1
 	
 
-func startIdle():
+func animationFinished():
+	if ANIMATION.animation == "walk": return
 	ANIMATION.play("idle")
 
 func attack():
