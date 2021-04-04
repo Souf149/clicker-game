@@ -2,11 +2,11 @@
 
 [ext_resource path="res://classes/Assassin/Assassin.tscn" type="PackedScene" id=1]
 [ext_resource path="res://IngameHUD.tscn" type="PackedScene" id=2]
-[ext_resource path="res://stages/Area2D.gd" type="Script" id=4]
+[ext_resource path="res://stages/Area2D.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
-[node name="stage1" type="Node2D"]
+[node name="world" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2( 6.54911, 5.78885 )
@@ -18,7 +18,7 @@ scale = Vector2( 0.287475, 0.283635 )
 
 [node name="attackArea" type="Area2D" parent="."]
 scale = Vector2( 50, 30 )
-script = ExtResource( 4 )
+script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackArea"]
 position = Vector2( 0, -9.41858 )

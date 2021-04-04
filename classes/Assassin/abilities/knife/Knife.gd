@@ -7,19 +7,19 @@ signal onClick
 
 
 func _ready():
-	modulate.a = 0.1
+	self_modulate.a = 0.1
 
 func _process(delta):
 
 	if timer < 2:
 		timer+=delta
-		modulate.a += 0.001
+		self_modulate.a += 0.001
 		
 	else:
 		if clickable: queue_free()
 		position += Vector2(10, 10)
 		rotate(0.15)
-		modulate.a += 0.01
+		self_modulate.a += 0.01
 
 func _input_event(_viewport, event, shape_idx):
 	if event.is_pressed() and clickable:
