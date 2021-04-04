@@ -12,8 +12,8 @@ var rng = RandomNumberGenerator.new()
 var knifes = []
 
 onready var ANIMATION = $AnimatedSprite
-var knifeNode = preload("res://classes/Assassin/abilities/Knife.tscn")
-var kunaiNode = preload("res://classes/Assassin/abilities/Kunai.tscn")
+var knifeNode = preload("res://classes/Assassin/abilities/knife/Knife.tscn")
+var kunaiNode = preload("res://classes/Assassin/abilities/kunai/Kunai.tscn")
 
 var skillCooldowns = [0.0, 0.0, 0.0, 0.0, 0.0]
 
@@ -47,7 +47,6 @@ func attack():
 	
 	# Adding modifiers
 	if(rng.randf() < critChance):
-		print(rng.randf())
 		ANIMATION.play("crit")
 		dealtDamage *= critModifier
 		
@@ -96,15 +95,16 @@ func firstSkill():
 	
 func secondSkill():
 	if skillCooldowns[1] > 0: return
-	for i in range(10):
+	for _i in range(10):
 		var knife: KinematicBody2D = Global.instance_node(knifeNode, global_position, self)
 		knife.global_position += Vector2(rng.randf_range(-100, 100), rng.randf_range(-100, 100))
 		knifes.append(knife)
-		knife.connect("clicked", self, "_onKnifeClick")
+		knife.connect("onClick", self, "_onKnifeClick")
 	skillCooldowns[1] = 5
 
-func _onKnifeClick():
+func _onKnifeClick(shape_idx):
 	print("SOUF")
+	print(shape_idx)
 	
 func thirdSkill():
 	if skillCooldowns[2] > 0: return

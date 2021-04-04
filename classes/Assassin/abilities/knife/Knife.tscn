@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://assets/Assassin/skills/knife.png" type="Texture" id=1]
-[ext_resource path="res://classes/Assassin/abilities/Knife.gd" type="Script" id=2]
-[ext_resource path="res://classes/Assassin/abilities/checkPressed.gd" type="Script" id=3]
+[ext_resource path="res://classes/Assassin/abilities/knife/Knife.gd" type="Script" id=2]
 
 [node name="Knife" type="KinematicBody2D"]
+input_pickable = true
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -13,5 +13,3 @@ flip_h = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -110, -101.9, -110, -58.4, -100, -56.3, -100, -49.2, -96.8, -46, -80, -46, -80, -39.2, -76.8, -36, -60, -36, -60, -33.7, -70, -31.6, -70, -14, -76.8, -14, -80, -10.8, -80, 22, -77.1, 22, -40, 23.9, -40, 31.6, -30, 33.7, -30, 40.8, -26.8, 44, -20, 44, -20, 50.8, -16.8, 54, -10, 54, -10, 60.8, -6.8, 64, 0, 64, 0, 70.8, 3.2, 74, 10, 74, 10, 80.8, 13.2, 84, 20, 84, 20, 90.8, 23.2, 94, 50.3, 94, 52.4, 104, 70, 104, 70, 110.8, 73.2, 114, 115.7, 114, 118.4, 98, 115.4, 98, 108, 96.4, 108, 89.2, 104.8, 86, 98, 86, 98, 79.2, 94.8, 76, 88, 76, 88, 69.2, 84.8, 66, 78, 66, 78, 59.2, 74.8, 56, 68, 56, 68, 49.2, 64.8, 46, 58, 46, 58, 28.4, 48, 26.3, 48, 19.2, 44.8, 16, 38, 16, 38, -1.60001, 28, -3.7, 28, -22, 25.4, -22, 18, -23.6, 18, -26, 26, -26, 26, -28.6, 27.6, -36, 34.8, -36, 38, -39.2, 38, -82, 35.1, -82, 2, -84.1, 2, -81.4, 0.399994, -74, -42, -74, -42, -81.6, -52, -83.7, -52, -90.8, -55.2, -94, -72, -94, -72, -101.2, -74, -102.2, -74, -104.1 )
-script = ExtResource( 3 )
-[connection signal="clicked" from="CollisionPolygon2D" to="." method="_on_CollisionPolygon2D_clicked"]
