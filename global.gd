@@ -3,7 +3,7 @@ extends Node
 var selectedClass = ""
 
 
-func instance_node(node, location, parent):
+func instance_node(node, location, parent) -> Node:
 	var node_instance = node.instance()
 	parent.add_child(node_instance)
 	node_instance.global_position = location

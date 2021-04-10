@@ -44,6 +44,7 @@ texture = ExtResource( 4 )
 anchor_top = 0.5
 anchor_bottom = 0.5
 rect_scale = Vector2( 1, 0.52 )
+[connection signal="attacked" from="DemonHunter" to="." method="_on_attacked"]
 [connection signal="newDps" from="DemonHunter" to="CanvasLayer/HUD" method="_on_DemonHunter_newDps"]
 [connection signal="clicked" from="DemonHunter/attackArea" to="DemonHunter" method="attack"]
 [connection signal="skillButtonPressed" from="CanvasLayer/HUD" to="DemonHunter" method="executeSkill"]
