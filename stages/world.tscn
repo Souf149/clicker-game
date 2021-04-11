@@ -11,21 +11,21 @@
 [node name="world" type="Node2D"]
 script = ExtResource( 5 )
 
-[node name="DemonHunter" parent="." instance=ExtResource( 1 )]
+[node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -178.191, -330.077 )
 scale = Vector2( 0.287475, 0.283635 )
 
-[node name="Camera2D" type="Camera2D" parent="DemonHunter"]
+[node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2( 619.849, 1163.74 )
 scale = Vector2( 22.7815, 20.4095 )
 current = true
 
-[node name="attackArea" type="Area2D" parent="DemonHunter"]
+[node name="attackArea" type="Area2D" parent="player"]
 position = Vector2( 619.849, 1163.74 )
 scale = Vector2( 173.928, 105.77 )
 script = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DemonHunter/attackArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/attackArea"]
 position = Vector2( 0, -9.41858 )
 shape = SubResource( 1 )
 
@@ -44,7 +44,13 @@ texture = ExtResource( 4 )
 anchor_top = 0.5
 anchor_bottom = 0.5
 rect_scale = Vector2( 1, 0.52 )
-[connection signal="attacked" from="DemonHunter" to="." method="_on_attacked"]
-[connection signal="newDps" from="DemonHunter" to="CanvasLayer/HUD" method="_on_DemonHunter_newDps"]
-[connection signal="clicked" from="DemonHunter/attackArea" to="DemonHunter" method="attack"]
-[connection signal="skillButtonPressed" from="CanvasLayer/HUD" to="DemonHunter" method="executeSkill"]
+
+[node name="EnemyRespawnTimer" type="Timer" parent="."]
+wait_time = 4.0
+[connection signal="enemyDied" from="." to="player" method="_on_world_enemyDied"]
+[connection signal="enemySpawned" from="." to="player" method="_on_world_enemySpawned"]
+[connection signal="attacked" from="player" to="." method="_on_attacked"]
+[connection signal="newDps" from="player" to="CanvasLayer/HUD" method="_on_DemonHunter_newDps"]
+[connection signal="clicked" from="player/attackArea" to="player" method="attack"]
+[connection signal="skillButtonPressed" from="CanvasLayer/HUD" to="player" method="executeSkill"]
+[connection signal="timeout" from="EnemyRespawnTimer" to="." method="_on_EnemyRespawnTimer_timeout"]

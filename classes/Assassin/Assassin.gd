@@ -7,11 +7,14 @@ var damagePastSecond = 0
 var critChance = 1.0/10
 var critModifier = 1.5
 var ableToAttack = true
+var clickedKnifes = 0
 
 var rng = RandomNumberGenerator.new()
 var knifes = []
 
 onready var ANIMATION = $AnimatedSprite
+onready var KNIFE_TIMER = $KnifeTimer
+
 var knifeNode = preload("res://classes/Assassin/abilities/knife/Knife.tscn")
 var kunaiNode = preload("res://classes/Assassin/abilities/kunai/Kunai.tscn")
 
@@ -40,12 +43,13 @@ func _process(delta):
 	
 
 func animationFinished():
+	print("TRIGGERED")
 	if ANIMATION.animation == "walk": return
 	ANIMATION.play("idle")
 
-func attack():
+func attack(damage = DAMAGE):
 	if not ableToAttack: return
-	var dealtDamage = DAMAGE
+	var dealtDamage = damage
 	
 	# Adding modifiers
 	if(rng.randf() < critChance):
@@ -102,15 +106,17 @@ func secondSkill():
 		knife.global_position += Vector2(rng.randf_range(-100, 100), rng.randf_range(-100, 100))
 		knifes.append(knife)
 		knife.connect("onClick", self, "_onKnifeClick")
+	
+	KNIFE_TIMER.start()
 	skillCooldowns[1] = 5
 
 func _onKnifeClick(shape_idx):
-	print("SOUF")
-	print(shape_idx)
+	clickedKnifes += 1
 	
 func thirdSkill():
 	if skillCooldowns[2] > 0: return
 	Global.instance_node(kunaiNode, global_position, self)
+	attack(100)
 	skillCooldowns[2] = 5
 	
 func fourthSkill():
@@ -121,3 +127,18 @@ func fifthSkill():
 	skillCooldowns[4] = 5
 
 	
+
+
+func _on_KnifeTimer_timeout():
+	attack(clickedKnifes * 10)
+	clickedKnifes = 0;
+
+
+func _on_world_enemyDied():
+	ableToAttack = false
+	ANIMATION.play("walk")
+
+
+func _on_world_enemySpawned():
+	ableToAttack = true
+	ANIMATION.play("idle")

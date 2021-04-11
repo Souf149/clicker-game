@@ -66,15 +66,15 @@ animations = [ {
 "name": "crit",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 31 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "walk",
-"speed": 2.0
-}, {
 "frames": [ ExtResource( 1 ), ExtResource( 41 ), ExtResource( 35 ), ExtResource( 26 ), ExtResource( 8 ), ExtResource( 38 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 36 ), ExtResource( 14 ), ExtResource( 7 ), ExtResource( 21 ), ExtResource( 31 ) ],
 "loop": true,
 "name": "attack",
 "speed": 30.0
+}, {
+"frames": [ ExtResource( 31 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "walk",
+"speed": 2.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -91,7 +91,7 @@ __meta__ = {
 position = Vector2( 0, -0.132431 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 27
+frame = 17
 speed_scale = 3.0
 playing = true
 
@@ -101,4 +101,9 @@ shape = SubResource( 2 )
 
 [node name="EverySecondTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="KnifeTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 [connection signal="timeout" from="EverySecondTimer" to="." method="secondPassed"]
+[connection signal="timeout" from="KnifeTimer" to="." method="_on_KnifeTimer_timeout"]

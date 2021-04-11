@@ -75,7 +75,7 @@ position = Vector2( 0, -86.9742 )
 scale = Vector2( 7.52, 7.52 )
 frames = SubResource( 12 )
 animation = "idle"
-frame = 7
+frame = 5
 playing = true
 
 [node name="HealthBar" parent="." instance=ExtResource( 2 )]
